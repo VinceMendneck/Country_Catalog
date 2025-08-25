@@ -150,31 +150,35 @@ Use /docs para testar interativamente.
 
 Estrutura do Projeto
 Country_Catalog/
-├── country_catalog.py  # Código principal da API
-├── countries.db       # Banco de dados SQLite (criado automaticamente)
+├── country_catalog.py 
+├── countries.db      
 
 Desafios e Soluções
 
 Consumo da API REST Countries:
 
 Desafio: A API não suporta ordenação por população. A ordenação foi feita localmente com sorted em Python.
+
 Solução: Filtramos apenas os campos necessários (name,population,continents) para reduzir o tamanho da resposta.
 
 
 Persistência de Avaliações:
 
 Desafio: Contar curtidas e não curtidas de forma eficiente.
+
 Solução: Usamos consultas SQL com SUM(CASE ...) para calcular dinamicamente as avaliações por país.
 
 
 Tratamento de Erros:
 
 Desafio: Garantir respostas consistentes para falhas (ex.: país não encontrado).
+
 Solução: Implementamos tratamento de erros HTTP (404, 400, 500) com mensagens claras.
 
 
 Uso do SQLite:
 
 Desafio: Garantir compatibilidade com o FastAPI em ambiente assíncrono.
+
 Solução: Configuramos check_same_thread=False na conexão SQLite e fechamos conexões adequadamente.
 
